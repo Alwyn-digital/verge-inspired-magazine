@@ -1,3 +1,6 @@
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+
 interface HeroArticleProps {
   title: string;
   subtitle: string;
@@ -16,7 +19,8 @@ export const HeroArticle = ({
   category
 }: HeroArticleProps) => {
   return (
-    <article className="relative group cursor-pointer">
+    <Link to="/article/1">
+      <article className="relative group cursor-pointer">
       {/* Featured Image */}
       <div className="aspect-[16/10] overflow-hidden rounded-lg bg-muted">
         <img
@@ -49,5 +53,6 @@ export const HeroArticle = ({
         </div>
       </div>
     </article>
+    </Link>
   );
 };

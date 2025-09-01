@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
-  const categories = ["Tech", "Reviews", "Science", "Entertainment", "AI"];
+  const categories = ["Tech", "Reviews", "Science", "Entertainment", "AI", "Politics"];
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border">
@@ -11,19 +12,22 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-8">
-            <h1 className="text-2xl font-bold tracking-tight">
-              The<span className="text-verge-cyan">Verge</span>
-            </h1>
+            <Link to="/">
+              <h1 className="text-2xl font-bold tracking-tight hover:text-verge-cyan transition-colors">
+                The<span className="text-verge-cyan">Verge</span>
+              </h1>
+            </Link>
             
             {/* Desktop Categories */}
             <div className="hidden lg:flex space-x-6">
               {categories.map((category) => (
-                <button
+                <Link
                   key={category}
+                  to={`/category/${category.toLowerCase()}`}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {category}
-                </button>
+                </Link>
               ))}
             </div>
           </div>

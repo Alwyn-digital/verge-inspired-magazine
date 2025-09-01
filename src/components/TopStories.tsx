@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface Story {
   id: number;
   title: string;
@@ -18,7 +20,8 @@ export const TopStories = ({ stories }: TopStoriesProps) => {
       
       <div className="space-y-6">
         {stories.map((story, index) => (
-          <article key={story.id} className="group cursor-pointer">
+          <Link key={story.id} to={`/article/${story.id}`}>
+            <article className="group cursor-pointer">
             <div className="flex space-x-4">
               {/* Story Number */}
               <span className="flex-shrink-0 text-2xl font-bold text-verge-cyan">
@@ -52,6 +55,7 @@ export const TopStories = ({ stories }: TopStoriesProps) => {
               </div>
             </div>
           </article>
+          </Link>
         ))}
       </div>
     </aside>
